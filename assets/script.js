@@ -20,7 +20,7 @@ $(document).ready(function() {
         //adds name of the recipes
         var names = hits[i].recipe.label;
         recipeDiv.text(names);
-        //adds div for buttons (style) ****This is so bulma understands how to lay out the buttons
+        //adds div for buttons (style) ****This is so ** understands how to lay out the buttons
         var resultbuttons = $("<div>");
         resultbuttons.addClass("columns is-mobile is-centered");
         recipeDiv.append(resultbuttons);
