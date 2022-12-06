@@ -1,0 +1,261 @@
+/*
+.title-banner {
+    background-color: yellow;
+    font-size: 40px;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+*/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
+}
+
+header{
+  /* I don't think we need to include flex box here */
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  background-color: yellow; /* blue */
+  color: black; /* white */
+  font-size: 3.0em;
+  margin: 0; /* delete default margin */
+
+  background-image: url("./mini-carbonara-quiches-165527-1.jpg");
+  height: 100%;/*9.375%;*/ /*150px;*/
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+
+}
+
+/* main =============================================================*/
+main{
+  flex-direction: row;
+  /*padding: 1.5%; /*20px;* / */
+  width: 100%;
+  /*
+  padding-left: 18.75%; /*300px;* /
+  padding-right: 18.75%; /*300px;* /
+  padding-bottom: 3.125%; /*50px;* /
+  padding-top: 0.625%; /*10px;* /
+  */
+  margin-bottom: 5em;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+}
+
+.column_1{
+  /*
+  display: flex;
+  flex-direction: column;
+  / *flex-basis: 80%; /* 20% of width * /
+  width: 80%;
+  
+  flex-wrap: wrap;
+  */
+  /*align-items: flex-end;*/
+  width: 80%;
+  text-align: left;
+  padding-right: 0.5em;
+
+  border: solid #ffc107;
+  /*border-right: solid #ffc107;*/
+  border-width: 0.2em;
+}
+
+.column_1_row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: 100%;
+  border: solid #ffc107;
+}
+
+.each_food{
+  display: flex;
+  flex-direction: column;
+  border: solid #ffc107;
+}
+
+
+
+.column_2{
+  display: flex;
+  flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  /*flex-basis: 20%; /* 80% of width */
+  width: 20%;
+  flex-wrap: wrap;
+
+  border: solid red;
+  padding-left: 0.5em;
+}
+
+.subtitle{
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  background: #f1f1f1;
+  margin-bottom: 10px;  
+}
+.main-search {
+  /*
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  */
+  /*width: 100%;*/
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  background: #f1f1f1;
+  margin-bottom: 10px;
+}
+.main-search-button {
+  /*
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  */
+ 
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+
+/* if appButton is used, we don't need to add "main-search-button" */
+.appButton {
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+
+.appButton:hover {
+  background-color: purple;
+}
+
+.appButton {
+
+}
+
+.appButton:hover {
+
+}
+
+.appButton:active {
+
+}
+
+.appButton::selection {
+
+}
+
+.listButton {
+
+}
+
+.listButton:hover {
+
+}
+
+ul {
+
+}
+
+/* Style the list items */
+ul li {
+
+}
+
+.checked {
+
+}
+
+.shopitem {
+
+}
+
+.dish-results {
+
+}
+
+/* name of the food*/
+.name {
+  font-size: 1.6em;
+  font-style: normal;
+}
+
+.search-item {
+  font-size: 1.6em;
+  font-style: italic;
+}
+
+.search-item:hover {
+
+}
+
+.search-item:active {
+
+}
+
+.search-item::selection {
+
+}
+
+.savedDish {
+
+}
+
+
+
+/* media query =====================================================*/
+/* 850 px & 550 px*/
+/*
+@media screen and (max-width: 1300px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 70%;
+  }
+  main{
+      padding-left: 9.375%; / *150px;* /
+      padding-right: 9.375%; / *150px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+@media screen and (max-width: 950px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 50%;
+  }
+  main{
+      padding-left: 1.25%; / *20px;* /
+      padding-right: 1.25%; / *20px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+*/
+/* end of media query ================================================*/

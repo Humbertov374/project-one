@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,14 +10,13 @@
   <body>
     <!--Title Branch-->
     <div class="column is-primary">
-      <div class="is-1 has-text-centered box title-banner">
-        Cloud9 Recipes
+      <div class="is -1 has-text-centered box title-banner">
+        Recipe Generator
       </div>
     </div>
-
     <div class="container">
       <div class="columns">
-        <!-- Ingredients go here-->
+        <!--append new items to classname: shopping-list--LATER-- This is where the ingredients for the shopping list will go  -->
         <div class="column">
           <div class="box shopping-list">
             <div class="subtitle">Shopping List</div>
@@ -45,7 +44,7 @@
             Search for Recepies
           </div>
           <div class="columns is-mobile is-centered">
-            <!-- This is the searchbar will hoepfuly hitting API for dishes by monday--> 
+            <!-- The searchbar that should be connecting with the API for dishes -->
             <input
               class="input column is-two-fifths-mobile column is-two-fifths-tablet column is-two-fifths-desktop main-search"
               type="text"
@@ -58,11 +57,11 @@
               <i class="fa fa-search"></i>
             </button>
           </div>
-          <!-- This is the box where the results of the API request should go (append new items to classname: dish-results) -->
+          <!-- append new items to classname: dish-results--- LATER----This is the box where the results of the API request should go, [Do not Chnage]-->
           <div class="box dish-results columns is-multiline is-centered"></div>
         </div>
 
-        <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->
+        <!-- append ingredients from API to classname: ingredient-list---LATER----This is where the ingredients for the selected dish will display -->
         <div class="column is-one-quarter">
           <div class="box ingredient-list">
             <div class="subtitle savedMeals">Meals for the Week</div>
@@ -70,8 +69,6 @@
         </div>
       </div>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="assets/script.js"></script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>
