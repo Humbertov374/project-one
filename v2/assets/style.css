@@ -33,7 +33,7 @@ header{
 
 }
 
-/* main =============================================================*/
+/* main & overall ========================================================*/
 main{
   display: flex;
   flex-direction: row;
@@ -46,6 +46,19 @@ main{
   padding-top: 0.625%; /*10px;* /
   */
   margin-bottom: 5em;
+}
+
+.subtitle{
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  background: #f1f1f1;
+  margin-bottom: 10px;  
 }
 
 /* column_1 ========================================================*/
@@ -61,21 +74,26 @@ main{
   /*border-right: solid #ffc107;*/
   border-width: 0.2em;
 }
+.search_recipe{
+  padding-left: 0.5em;
+}
 
 .dish_results{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%; /* 100 % of "column_1" */
-  border: solid black;
+  /*border: solid black;*/
 }
 
 /* each food start ----------------- */
 .each_food{
   display: flex;
   flex-direction: column;
-  width: 32.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
+  width: 30.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
   border: solid #ffc107;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 .food_name{
   font-size: 1.6em;
@@ -143,67 +161,27 @@ main{
   border: solid red;
   padding-left: 0.5em;
 }
-
-.subtitle{
-  font-size: 1.6em;
-  font-weight: bold;
-}
-
-input {
-  padding: 10px;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  background: #f1f1f1;
-  margin-bottom: 10px;  
-}
-.main-search {
-  /*
-  background-color: white;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  */
-  /*width: 100%;*/
-  padding: 10px;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  background: #f1f1f1;
-  margin-bottom: 10px;
-}
+/* end of column_2 ==================================================*/
 
 
+/* etc ==============================================================*/
 .listButton {
-
 }
-
 .listButton:hover {
-
 }
-
 ul {
-
 }
 
 /* Style the list items */
 ul li {
-
 }
-
 .checked {
-
 }
-
 .shopitem {
-
 }
-
 .dish-results {
-
 }
-
-
-
 .savedDish {
-
 }
 
 

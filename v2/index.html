@@ -54,29 +54,25 @@
       </div>
 
       <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->
-      <div class="is-one-quarter">
-        <div class="ingredient-list">
-          <div class="subtitle savedMeals">Meals for the Week</div>
-        </div>
+      <!-- jw, I don't think we need this, so let's deactivate this now-->
+      <!--
+      <div class="ingredient-list">
+        <p class="subtitle">Meals for the Week</p>
       </div>
+      -->
     </div>
 
 
+    <!-- Shopping list based on Ingredients will be here-->
     <div class="column_2">
-      <!-- Ingredients go here-->
-      <div class="column">
-        <div class="shopping-list">
-          <div class="subtitle">Shopping List</div>
-          <form class="is-mobile">
-            <input class="input column" type="text" placeholder="Add ingredient" id="addItem" />
-            <button type="submit" id="addItemBtn" class="column appButton">
-              <i>Search</i>
-            </button>
-          </form>
-          <ul id="shoppingList"></ul>
-        </div>
-      </div>
-
+      <p class="subtitle">Shopping List</p> <!-- jw, "div" to "p" -->
+      <form class="is-mobile">
+        <input class="input" type="text" placeholder="Add ingredient" id="addItem" />
+        <button type="submit" id="addItemBtn" class="appButton">
+          <i>Add</i> <!-- jw, update from "Search" to "Add" -->
+        </button>
+      </form>
+      <ul id="shoppingList"></ul>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
