@@ -1,56 +1,156 @@
 .title-banner {
-    background-color: yellow;
-    font-size: 40px;
-    text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+  background-color: yellow;
+  font-size: 40px;
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
-  .main-search {
-    background-color: white;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  }
+/* main =============================================================*/
+main{
+flex-direction: row;
+/*padding: 1.5%; /*20px;* / */
+width: 100%;
+/*
+padding-left: 18.75%; /*300px;* /
+padding-right: 18.75%; /*300px;* /
+padding-bottom: 3.125%; /*50px;* /
+padding-top: 0.625%; /*10px;* /
+*/
+margin-bottom: 5em;
+}
+.container{
+display: flex;
+flex-direction: column;
+}
 
-  .main-search-button {
-    background-color: white;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  }
+.column_1{
+display: flex;
+flex-direction: column;
+/*flex-basis: 20%; /* 20% of width */
+width: 15%;
+flex-wrap: wrap;
+/*align-items: flex-end;*/
+text-align: left;
+padding-right: 0.5em;
 
-  .appButton 
+border-right: solid #ffc107;
+border-width: 0.2em;
+}
+.column_2{
+display: flex;
+flex-direction: row; /* to stack horizontally first then vertical shift down when not enough space */
+/*flex-basis: 80%; /* 80% of width */
+width: 85%;
+flex-wrap: wrap;
 
-  .appButton:hover 
+padding-left: 0.5em;
+}
 
-  .appButton:active 
+.subtitle{
+font-size: 1.6em;
+font-weight: bold;
+}
+input {
+padding: 10px;
+font-size: 1.2em;
+border: 1px solid grey;
+background: #f1f1f1;
+margin-bottom: 10px;  
+}
+.main-search {
+/*
+background-color: white;
+margin-top: 5px;
+margin-bottom: 15px;
+*/
+/*width: 100%;*/
+padding: 10px;
+font-size: 1.2em;
+border: 1px solid grey;
+background: #f1f1f1;
+margin-bottom: 10px;
+}
+.main-search-button {
+/*
+background-color: white;
+margin-top: 5px;
+margin-bottom: 15px;
+*/
 
-  .appButton::selection 
+/*width: 100%;*/
+padding: 10px;
+background: #2196F3;
+color: white;
+font-size: 1.2em;
+border: 1px solid grey;
+cursor: pointer;  
+margin-bottom: 10px;
+}
 
-  .listButton 
+/* if appButton is used, we don't need to add "main-search-button" */
+.appButton {
+/*width: 100%;*/
+padding: 10px;
+background: #2196F3;
+color: white;
+font-size: 1.2em;
+border: 1px solid grey;
+cursor: pointer;  
+margin-bottom: 10px;
+}
 
-  .listButton:hover 
+/*
+.main-search {
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
 
-  ul 
+.main-search-button {
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+*/
 
-  /* Style the list items */
-  ul li 
+.appButton:hover {
+background-color: purple;
+}
 
-  .checked 
+.appButton 
 
-  .shopitem 
+.appButton:hover 
 
-  .dish-results 
+.appButton:active 
 
-  .name 
+.appButton::selection 
 
-  .search-item 
+.listButton 
 
-  .search-item:hover 
+.listButton:hover 
 
-  .search-item:active 
+ul 
 
-  .search-item::selection 
+/* Style the list items */
+ul li 
 
-  .savedDish
+.checked 
+
+.shopitem 
+
+.dish-results 
+
+.name 
+
+.search-item 
+
+.search-item:hover 
+
+.search-item:active 
+
+.search-item::selection 
+
+.savedDish
