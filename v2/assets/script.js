@@ -13,17 +13,18 @@ $(document).ready(function() {
       // jw, This is for each Recipe ======================================== !
       var hits = response.hits;
       console.log(response.hits);
-      $(".dish-results").empty();
+      $(".dish_results").empty(); // delete previously searched recipes
+
       for (i = 0; i < hits.length; i++) {
         //loops through and makes a new div for each recipe
         var recipeDiv = $("<div>");
-        recipeDiv.addClass("each_food name is-5 has-text-centered subtitle");
+        recipeDiv.addClass("each_food name is-5 subtitle");
         //adds name of the recipes
         var names = hits[i].recipe.label;
         recipeDiv.text(names); // Recipe name
         //adds div for buttons (style) ****This is so bulma understands how to lay out the buttons
         var resultbuttons = $("<div>");
-        resultbuttons.addClass("is-centered");
+        /*resultbuttons.addClass("is-centered"); / *jw, is-centered is now deactivated* /*/
         recipeDiv.append(resultbuttons);
         //adds links to the divs
         var links = $("<a>");
@@ -34,7 +35,7 @@ $(document).ready(function() {
         );
         links.attr("href", recipeLinks);
         links.attr("target", "_blank");
-        links.text("Recepie Source"); // "Recipe Source"
+        links.text("Recipe Source"); // "Recipe Source"
         resultbuttons.append(links);
         //adds buttons for adding ingredients
         var ingredientBttn = $("<button>");
@@ -55,7 +56,7 @@ $(document).ready(function() {
         imgs.attr("class", "img image is-250x250");
         //adds image to the divs
         recipeDiv.append(imgs);
-        $(".dish-results").append(recipeDiv);
+        $(".dish_results").append(recipeDiv);
       }
     });
   });

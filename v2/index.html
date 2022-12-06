@@ -1,87 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Generator</title>
-    <link rel="stylesheet" href="./assets/normalize.css" />
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
 
-  <body>
-    <header>
-      <h1>Cloud9 Recipes</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Generator</title>
+  <link rel="stylesheet" href="./assets/normalize.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
 
+<body>
+  <header>
+    <h1>Cloud9 Recipes</h1>
+  </header>
 
-    
-    <main>
-      <div class="container">
-        <div class="column_1">
-          <div class="is-half">
-            <div class="subtitle has-text-centered">
-              Search for Recepies
-            </div>
-            <div class="columns is-centered">
-              <!-- This is the searchbar will hoepfuly hitting API for dishes by monday--> 
-              <input
-                class="input column is-two-fifths-desktop main-search"
-                type="text"
-                placeholder="Search For Recepies"
-              />
-              <button
-                type="submit"
-                class="appButton main-search-button"
-              >
-                <i>Submit</i>
-              </button>
-            </div>
-            <!-- This is the box where the results of the API request should go (append new items to classname: dish-results) -->
-            <div class="column_1_row">
-              <div class="dish-results columns is-multiline is-centered"></div>
-            </div>
-          </div>
+  <main>
+    <div class="column_1">
+      <div class="search_recipe">
+        <!-- This is the searchbar-->
+        <p class="subtitle">
+          Search for Recipes
+        </p>
+        <input class="input column is-two-fifths-desktop main-search" type="text" placeholder="Search For Recipes" />
+        <button type="submit" class="appButton main-search-button">
+          <i>Submit</i>
+        </button>
+      </div>
 
-          <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->
-          <div class="is-one-quarter">
-            <div class="ingredient-list">
-              <div class="subtitle savedMeals">Meals for the Week</div>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div class="column_2">
-          <!-- Ingredients go here-->
-          <div class="column">
-            <div class="shopping-list">
-              <div class="subtitle">Shopping List</div>
-              <form class="columns is-mobile">
-                <input
-                  class="input column"
-                  type="text"
-                  placeholder="Add ingredient"
-                  id="addItem"
-                />
-                <button
-                  type="submit"
-                  id="addItemBtn"
-                  class="column appButton"
-                >
-                  <i>Search</i>
-                </button>
-              </form>
-              <ul id="shoppingList"></ul>
-            </div>
-          </div>
+      <!-- This is the box where the results of the API request should go (append new items to classname: dish-results) -->
+      <div class="dish_results">
+        <!--
+            Following formarts will be added here...
+            <div class="each_food name is-5 subtitle">
+              Each recipe will be located here.
+            </div
+            <div class="each_food name is-5 subtitle">
+              Each recipe will be located here.
+            </div
+            ... for each food
+            -->
+      </div>
 
+      <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->
+      <div class="is-one-quarter">
+        <div class="ingredient-list">
+          <div class="subtitle savedMeals">Meals for the Week</div>
         </div>
       </div>
-      
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="assets/script.js"></script>
+    </div>
+
+
+    <div class="column_2">
+      <!-- Ingredients go here-->
+      <div class="column">
+        <div class="shopping-list">
+          <div class="subtitle">Shopping List</div>
+          <form class="is-mobile">
+            <input class="input column" type="text" placeholder="Add ingredient" id="addItem" />
+            <button type="submit" id="addItemBtn" class="column appButton">
+              <i>Search</i>
+            </button>
+          </form>
+          <ul id="shoppingList"></ul>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="assets/script.js"></script>
   </main>
 
-  </body>
+</body>
+
 </html>
