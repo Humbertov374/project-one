@@ -23,6 +23,7 @@
           Search for Recipes
         </p>
         <input class="input column is-two-fifths-desktop main-search" type="text" placeholder="Search For Recipes" />
+        <!-- here, "appButton" will be used for css, but "main-search-button" will be used for the "click" event -->
         <button type="submit" class="appButton main-search-button">
           <i>Submit</i>
         </button>
@@ -31,15 +32,25 @@
       <!-- This is the box where the results of the API request should go (append new items to classname: dish-results) -->
       <div class="dish_results">
         <!--
-            Following formarts will be added here...
-            <div class="each_food name is-5 subtitle">
-              Each recipe will be located here.
-            </div
-            <div class="each_food name is-5 subtitle">
-              Each recipe will be located here.
-            </div
-            ... for each food
-            -->
+        Following formarts will be added here...
+        Each recipe will be located here.
+        <div class="each_food">
+          <p class="food_name">Pizza Dough</P>
+          <div>
+            <a class="search-item" href="url link to the item ~~~" target="_blank">Recipe Source</a>
+            <button 
+              class="ingredients-button search-item" 
+              value="500 g bread ~~~" 
+              data-link="url link ~~~" 
+              data-name="Pizza Dough">Save Ingredients</button>
+          <div>
+          <img src="url ~~~" alt="recipe img" class="img image is-250x250">  
+        </div
+        <div class="each_food">
+          Same as above for the next food...
+        </div
+        ... for each food
+        -->
       </div>
 
       <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->

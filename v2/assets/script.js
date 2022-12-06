@@ -18,10 +18,18 @@ $(document).ready(function() {
       for (i = 0; i < hits.length; i++) {
         //loops through and makes a new div for each recipe
         var recipeDiv = $("<div>");
-        recipeDiv.addClass("each_food name is-5 subtitle");
+        recipeDiv.addClass("each_food");
         //adds name of the recipes
         var names = hits[i].recipe.label;
-        recipeDiv.text(names); // Recipe name
+        
+        // jw, update with <p> element...
+        var p = document.createElement("p");
+        p.setAttribute("class","food_name");
+        p.textContent = names;
+        recipeDiv.append(p);
+        //recipeDiv.text(names); // Recipe name
+
+
         //adds div for buttons (style) ****This is so bulma understands how to lay out the buttons
         var resultbuttons = $("<div>");
         /*resultbuttons.addClass("is-centered"); / *jw, is-centered is now deactivated* /*/
@@ -37,6 +45,11 @@ $(document).ready(function() {
         links.attr("target", "_blank");
         links.text("Recipe Source"); // "Recipe Source"
         resultbuttons.append(links);
+
+        //jw, change the line with <br>
+        var br = document.createElement("br");
+        resultbuttons.append(br);
+
         //adds buttons for adding ingredients
         var ingredientBttn = $("<button>");
         ingredientBttn.text("Save Ingredients"); // "Save Ingredients"

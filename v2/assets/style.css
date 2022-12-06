@@ -66,18 +66,73 @@ main{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 30%; /* 100 % of "column_1" */
-  border: solid #ffc107;
+  width: 100%; /* 100 % of "column_1" */
+  border: solid black;
 }
 
+/* each food start ----------------- */
 .each_food{
   display: flex;
   flex-direction: column;
+  width: 32.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
   border: solid #ffc107;
 }
+.food_name{
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: bold;
+}
+.search-item {
+  font-size: 1.6em;
+  font-style: italic;
+}
+.search-item:hover {
+  background-color: lightblue;
+}
+.search-item:active {
 
+}
+.search-item::selection {
 
+}
 
+/* if appButton is used, we don't need to add "main-search-button" */
+/* but "main-search-button" is used for click event, thus do not remove the class in the html */
+.appButton {
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+.appButton:hover {
+  background-color: purple;
+}
+.appButton:active {
+}
+.appButton::selection {
+}
+
+/* jw, I set igredients-button identical to appButton */
+.ingredients-button {
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+.ingredients-button:hover {
+  background-color: purple;
+}
+/* End of column_1 ===================================================*/
+
+/* column_2 ==========================================================*/
 .column_2{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
@@ -114,54 +169,7 @@ input {
   background: #f1f1f1;
   margin-bottom: 10px;
 }
-.main-search-button {
-  /*
-  background-color: white;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  */
- 
-  /*width: 100%;*/
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  cursor: pointer;  
-  margin-bottom: 10px;
-}
 
-/* if appButton is used, we don't need to add "main-search-button" */
-.appButton {
-  /*width: 100%;*/
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  cursor: pointer;  
-  margin-bottom: 10px;
-}
-
-.appButton:hover {
-  background-color: purple;
-}
-
-.appButton {
-
-}
-
-.appButton:hover {
-
-}
-
-.appButton:active {
-
-}
-
-.appButton::selection {
-
-}
 
 .listButton {
 
@@ -192,28 +200,7 @@ ul li {
 
 }
 
-/* name of the food*/
-.name {
-  font-size: 1.6em;
-  font-style: normal;
-}
 
-.search-item {
-  font-size: 1.6em;
-  font-style: italic;
-}
-
-.search-item:hover {
-
-}
-
-.search-item:active {
-
-}
-
-.search-item::selection {
-
-}
 
 .savedDish {
 
