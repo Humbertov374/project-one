@@ -11,30 +11,29 @@
 */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
 }
 
-header{
+header {
   /* I don't think we need to include flex box here */
   text-align: center;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   background-color: yellow; /* blue */
   color: black; /* white */
-  font-size: 3.0em;
+  font-size: 3em;
   margin: 0; /* delete default margin */
 
   background-image: url("./mini-carbonara-quiches-165527-1.jpg");
-  height: 100%;/*9.375%;*/ /*150px;*/
+  height: 100%; /*9.375%;*/ /*150px;*/
   background-position: center;
   background-repeat: repeat;
   background-size: contain;
-
 }
 
 /* main & overall ========================================================*/
-main{
+main {
   display: flex;
   flex-direction: row;
   /*padding: 1.5%; /*20px;* / */
@@ -48,7 +47,7 @@ main{
   margin-bottom: 5em;
 }
 
-.subtitle{
+.subtitle {
   font-size: 1.6em;
   font-weight: bold;
 }
@@ -58,11 +57,11 @@ input {
   font-size: 1.2em;
   border: 1px solid grey;
   background: #f1f1f1;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 }
 
 /* column_1 ========================================================*/
-.column_1{
+.column_1 {
   display: flex;
   flex-direction: column;
   width: 80%; /* column_1 will occupy 80% of the "main" */
@@ -70,15 +69,15 @@ input {
   text-align: left;
   padding-right: 0.5em;
 
-  border: solid red;
+  border: solid green;
   /*border-right: solid #ffc107;*/
   border-width: 0.2em;
 }
-.search_recipe{
+.search_recipe {
   padding-left: 0.5em;
 }
 
-.dish_results{
+.dish_results {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -87,15 +86,15 @@ input {
 }
 
 /* each food start ----------------- */
-.each_food{
+.each_food {
   display: flex;
   flex-direction: column;
-  width: 30.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
+  width: 30%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
   border: solid #ffc107;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-.food_name{
+.food_name {
   font-size: 1.6em;
   font-style: normal;
   font-weight: bold;
@@ -108,10 +107,8 @@ input {
   background-color: lightblue;
 }
 .search-item:active {
-
 }
 .search-item::selection {
-
 }
 
 /* if appButton is used, we don't need to add "main-search-button" */
@@ -119,11 +116,11 @@ input {
 .appButton {
   /*width: 100%;*/
   padding: 10px;
-  background: #2196F3;
+  background: #2196f3;
   color: white;
   font-size: 1.2em;
   border: 1px solid grey;
-  cursor: pointer;  
+  cursor: pointer;
   margin-bottom: 10px;
 }
 .appButton:hover {
@@ -138,11 +135,11 @@ input {
 .ingredients-button {
   /*width: 100%;*/
   padding: 10px;
-  background: #2196F3;
+  background: #2196f3;
   color: white;
   font-size: 1.2em;
   border: 1px solid grey;
-  cursor: pointer;  
+  cursor: pointer;
   margin-bottom: 10px;
 }
 .ingredients-button:hover {
@@ -151,25 +148,33 @@ input {
 /* End of column_1 ===================================================*/
 
 /* column_2 ==========================================================*/
-.column_2{
+.column_2 {
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
   /*flex-basis: 20%; /* 80% of width */
   width: 20%;
   flex-wrap: wrap;
 
-  border: solid red;
+  border: solid green;
   padding-left: 0.5em;
 }
 /* end of column_2 ==================================================*/
 
-
 /* etc ==============================================================*/
 .listButton {
+  background-color: lightslategray;
+  margin: 8px;
 }
 .listButton:hover {
 }
 ul {
+}
+
+.listItems {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 /* Style the list items */
@@ -183,8 +188,6 @@ ul li {
 }
 .savedDish {
 }
-
-
 
 /* media query =====================================================*/
 /* 850 px & 550 px*/
