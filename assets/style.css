@@ -1,16 +1,6 @@
-/*
-.title-banner {
-    background-color: yellow;
-    font-size: 40px;
-    text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
-*/
 
 body {
+  /*font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
   /*font-family: "Montserrat","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; */
   font-family: "sofia", "Trirong", sans-serif;
@@ -50,7 +40,7 @@ main{
   padding-bottom: 3.125%; /*50px;* /
   padding-top: 0.625%; /*10px;* /
   */
-  margin-bottom: 5em;
+  /*margin-bottom: 5em;*/
   font-family: Trirong; /*sans-serif;*/
 }
 
@@ -113,12 +103,6 @@ input {
 .search-item:hover {
   background-color: lightblue;
 }
-.search-item:active {
-
-}
-.search-item::selection {
-
-}
 
 /* if appButton is used, we don't need to add "main-search-button" */
 /* but "main-search-button" is used for click event, thus do not remove the class in the html */
@@ -134,10 +118,6 @@ input {
 }
 .appButton:hover {
   background-color: purple;
-}
-.appButton:active {
-}
-.appButton::selection {
 }
 
 /* jw, I set igredients-button identical to appButton */
@@ -171,10 +151,6 @@ input {
 
 
 /* etc ==============================================================*/
-.listButton {
-}
-.listButton:hover {
-}
 ul {
   list-style: none;
   padding: 0;
@@ -190,45 +166,48 @@ ul li {
   text-decoration: none;
   font-size: 1.2em;
   color: black;
-  display: block;
   position: relative;
   display: inline-block;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding: 0.2em;
+
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
 /* Style the close button (span) */
 .close {
   cursor: pointer;
-  /*
-  position: absolute;
-  top: 50%;
-  right: 0%;
-  padding: 12px 16px;
-  */
   border: 1px solid #ddd;
   background-color: plum;
   text-decoration: none;
   font-size: 1.2em;
+  color: black;
 
   transform: translate(0%, -50%);
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding-top: 0.0em;
+  padding-bottom: 0.0em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+  margin-right: 0.2em;
 }
 
 .close:hover {background: #bbb;}
 
-
-
+footer p{
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: center;
+}
+#author_list{
+  color: blue;
+}
 
 
 
 /* Style the list items */
-ul li {
-}
+/*
 .checked {
 }
 .shopitem {
@@ -237,7 +216,7 @@ ul li {
 }
 .savedDish {
 }
-
+*/
 
 
 /* media query =====================================================*/
