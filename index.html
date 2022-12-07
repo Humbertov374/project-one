@@ -1,4 +1,89 @@
 <!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Generator</title>
+  <link rel="stylesheet" href="./assets/normalize.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Cloud9 Recipes</h1>
+  </header>
+
+  <main>
+    <div class="column_1">
+      <div class="search_recipe">
+        <!-- This is the searchbar-->
+        <p class="subtitle">
+          Search for Recipes
+        </p>
+        <input class="input column is-two-fifths-desktop main-search" type="text" placeholder="Search For Recipes" />
+        <!-- here, "appButton" will be used for css, but "main-search-button" will be used for the "click" event -->
+        <button type="submit" class="appButton main-search-button">
+          <i>Submit</i>
+        </button>
+      </div>
+
+      <!-- This is the box where the results of the API request should go (append new items to classname: dish-results) -->
+      <div class="dish_results">
+        <!--
+        Following formarts will be added here...
+        Each recipe will be located here.
+        <div class="each_food">
+          <p class="food_name">Pizza Dough</P>
+          <div>
+            <a class="search-item" href="url link to the item ~~~" target="_blank">Recipe Source</a>
+            <button 
+              class="ingredients-button search-item" 
+              value="500 g bread ~~~" 
+              data-link="url link ~~~" 
+              data-name="Pizza Dough">Save Ingredients</button>
+          <div>
+          <img src="url ~~~" alt="recipe img" class="img image is-250x250">  
+        </div
+        <div class="each_food">
+          Same as above for the next food...
+        </div
+        ... for each food
+        -->
+      </div>
+
+      <!-- This is where the ingredients for the selected dish will display (append ingredients from API to classname: ingredient-list) -->
+      <!-- jw, I don't think we need this, so let's deactivate this now-->
+      <!--
+      <div class="ingredient-list">
+        <p class="subtitle">Meals for the Week</p>
+      </div>
+      -->
+    </div>
+
+
+    <!-- Shopping list based on Ingredients will be here-->
+    <div class="column_2">
+      <p class="subtitle">Shopping List</p> <!-- jw, "div" to "p" -->
+      <form class="is-mobile">
+        <input class="input" type="text" placeholder="Add ingredient" id="addItem" />
+        <button type="submit" id="addItemBtn" class="appButton">
+          <i>Add</i> <!-- jw, update from "Search" to "Add" -->
+        </button>
+      </form>
+      <ul id="shoppingList"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="assets/script.js"></script>
+  </main>
+
+</body>
+
+</html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -77,3 +162,4 @@
     <script src="./assets/script.js"></script>
   </body>
 </html> 
+

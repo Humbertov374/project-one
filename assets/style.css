@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
@@ -24,6 +25,83 @@ header{
     justify-content: center;
 }
 */
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
+}
+
+header{
+  /* I don't think we need to include flex box here */
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  background-color: yellow; /* blue */
+  color: black; /* white */
+  font-size: 3.0em;
+  margin: 0; /* delete default margin */
+
+  background-image: url("./mini-carbonara-quiches-165527-1.jpg");
+  height: 100%;/*9.375%;*/ /*150px;*/
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+
+}
+
+/* main & overall ========================================================*/
+main{
+  display: flex;
+  flex-direction: row;
+  /*padding: 1.5%; /*20px;* / */
+  width: 100%;
+  /*
+  padding-left: 18.75%; /*300px;* /
+  padding-right: 18.75%; /*300px;* /
+  padding-bottom: 3.125%; /*50px;* /
+  padding-top: 0.625%; /*10px;* /
+  */
+  margin-bottom: 5em;
+}
+
+.subtitle{
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  background: #f1f1f1;
+  margin-bottom: 10px;  
+}
+
+/* column_1 ========================================================*/
+.column_1{
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* column_1 will occupy 80% of the "main" */
+  flex-wrap: wrap;
+  text-align: left;
+  padding-right: 0.5em;
+
+  border: solid red;
+  /*border-right: solid #ffc107;*/
+  border-width: 0.2em;
+}
+.search_recipe{
+  padding-left: 0.5em;
+}
+
+.dish_results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%; /* 100 % of "column_1" */
+  /*border: solid black;*/
+
 .subtitle{
   font-size: 1.6em;
   font-weight: bold;
@@ -92,27 +170,139 @@ input {
 }
 .listButton:hover {
 
+
 }
 
-  ul 
+/* each food start ----------------- */
+.each_food{
+  display: flex;
+  flex-direction: column;
+  width: 30.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
+  border: solid #ffc107;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.food_name{
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: bold;
+}
+.search-item {
+  font-size: 1.6em;
+  font-style: italic;
+}
+.search-item:hover {
+  background-color: lightblue;
+}
+.search-item:active {
 
-  /* Style the list items */
-  ul li 
+}
+.search-item::selection {
 
-  .checked 
+}
 
-  .shopitem 
+/* if appButton is used, we don't need to add "main-search-button" */
+/* but "main-search-button" is used for click event, thus do not remove the class in the html */
+.appButton {
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+.appButton:hover {
+  background-color: purple;
+}
+.appButton:active {
+}
+.appButton::selection {
+}
 
-  .dish-results 
+/* jw, I set igredients-button identical to appButton */
+.ingredients-button {
+  /*width: 100%;*/
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid grey;
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+.ingredients-button:hover {
+  background-color: purple;
+}
+/* End of column_1 ===================================================*/
 
-  .name 
+/* column_2 ==========================================================*/
+.column_2{
+  display: flex;
+  flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  /*flex-basis: 20%; /* 80% of width */
+  width: 20%;
+  flex-wrap: wrap;
 
-  .search-item 
+  border: solid red;
+  padding-left: 0.5em;
+}
+/* end of column_2 ==================================================*/
 
-  .search-item:hover 
 
-  .search-item:active 
+/* etc ==============================================================*/
+.listButton {
+}
+.listButton:hover {
+}
+ul {
+}
 
-  .search-item::selection 
+/* Style the list items */
+ul li {
+}
+.checked {
+}
+.shopitem {
+}
+.dish-results {
+}
+.savedDish {
+}
+
+
+
+
+/* media query =====================================================*/
+/* 850 px & 550 px*/
+/*
+@media screen and (max-width: 1300px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 70%;
+  }
+  main{
+      padding-left: 9.375%; / *150px;* /
+      padding-right: 9.375%; / *150px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+@media screen and (max-width: 950px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 50%;
+  }
+  main{
+      padding-left: 1.25%; / *20px;* /
+      padding-right: 1.25%; / *20px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+*/
+/* end of media query ================================================*/
 
   .savedDish
+
