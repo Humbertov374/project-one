@@ -212,3 +212,11 @@ showStorage();
 
   // local();
 });
+
+function clear_items(event){
+  localStorage.clear();
+}
+
+var clear_all = document.getElementById("clear_all");
+clear_all.addEventListener("click",clear_items);
+
