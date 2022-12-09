@@ -154,9 +154,18 @@ input {
 }
 /* end of column_2 ==================================================*/
 /* column_21 ========================================================*/
-.column_21, .column_22, .column_23{
+.column_21, .column_23{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  width: 100%;
+  flex-wrap: wrap;
+  border: solid red;
+  padding-left: 0.5em;
+}
+
+.column_22{
+  display: flex;
+  flex-direction: row; /* to stack horizontally first then vertical shift down when not enough space */
   width: 100%;
   flex-wrap: wrap;
   /*border: solid red;*/
@@ -166,9 +175,9 @@ input {
 .column_221, .column_222{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
-  width: 50%;
+  width: 45%;
   flex-wrap: wrap;
-  /*border: solid red;*/
+  border: solid blue;
   padding-left: 0.5em;
 }
 
@@ -189,12 +198,16 @@ ul li {
   font-size: 1.2em;
   color: black;
   position: relative;
-  display: inline-block;
+  /*display: inline-block;*/
   padding: 0.2em;
 
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
+.listItems{
+  display: inline-block;
+}
+
 /* Style the close button (span) */
 .close {
   cursor: pointer;
