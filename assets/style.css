@@ -1,19 +1,13 @@
 body {
-<<<<<<< HEAD
   /*font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
   /*font-family: "Montserrat","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; */
   font-family: "sofia", "Trirong", sans-serif;
   font-size: 1.0em; /* this will be our default font size */
-=======
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
->>>>>>> main
 }
 
 header {
   /* I don't think we need to include flex box here */
-<<<<<<< HEAD
   padding-top: 1.0em;
   padding-bottom: 1.0em;
   /*background-color: yellow;*/ /* don't need to include background color since we are using a backgroudn image */
@@ -49,21 +43,6 @@ header {
 
 h1{
   margin: 0;
-=======
-  text-align: center;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  background-color: yellow; /* blue */
-  color: black; /* white */
-  font-size: 3em;
-  margin: 0; /* delete default margin */
-
-  background-image: url("./mini-carbonara-quiches-165527-1.jpg");
-  height: 100%; /*9.375%;*/ /*150px;*/
-  background-position: center;
-  background-repeat: repeat;
-  background-size: contain;
->>>>>>> main
 }
 
 /* main & overall ========================================================*/
@@ -84,11 +63,7 @@ input {
   font-size: 1.2em;
   border: 1px solid grey;
   background: #f1f1f1;
-<<<<<<< HEAD
   margin-bottom: 0.625em; /*10px;  */
-=======
-  margin-bottom: 10px;
->>>>>>> main
 }
 
 /* column_1 ========================================================*/
@@ -120,11 +95,7 @@ input {
 .each_food {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   width: 30.0%; /* each food will occupy 30% of "dish_results" which is 100% of "column_1" */
-=======
-  width: 30%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
->>>>>>> main
   border: solid #ffc107;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -141,18 +112,10 @@ input {
 .search-item:hover {
   background-color: lightblue;
 }
-<<<<<<< HEAD
-=======
-.search-item:active {
-}
-.search-item::selection {
-}
->>>>>>> main
 
 /* if appButton is used, we don't need to add "main-search-button" */
 /* but "main-search-button" is used for click event, thus do not remove the class in the html */
 .appButton {
-<<<<<<< HEAD
   padding: 0.625em;
   background: #2196F3;
   color: white;
@@ -160,16 +123,6 @@ input {
   border: 1px solid grey;
   cursor: pointer;  
   margin-bottom: 0.625em;
-=======
-  /*width: 100%;*/
-  padding: 10px;
-  background: #2196f3;
-  color: white;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  cursor: pointer;
-  margin-bottom: 10px;
->>>>>>> main
 }
 .appButton:hover {
   background-color: purple;
@@ -177,7 +130,6 @@ input {
 
 /* jw, I set igredients-button identical to appButton */
 .ingredients-button {
-<<<<<<< HEAD
   padding: 0.625em;
   background: #2196F3;
   color: white;
@@ -185,16 +137,6 @@ input {
   border: 1px solid grey;
   cursor: pointer;  
   margin-bottom: 0.625em;
-=======
-  /*width: 100%;*/
-  padding: 10px;
-  background: #2196f3;
-  color: white;
-  font-size: 1.2em;
-  border: 1px solid grey;
-  cursor: pointer;
-  margin-bottom: 10px;
->>>>>>> main
 }
 .ingredients-button:hover {
   background-color: purple;
@@ -207,26 +149,12 @@ input {
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
   width: 25%;
   flex-wrap: wrap;
-<<<<<<< HEAD
   border: solid red;
-=======
-
-  border: solid green;
->>>>>>> main
   padding-left: 0.5em;
 }
 /* end of column_2 ==================================================*/
 
 /* etc ==============================================================*/
-<<<<<<< HEAD
-=======
-.listButton {
-  background-color: lightslategray;
-  margin: 8px;
-}
-.listButton:hover {
-}
->>>>>>> main
 ul {
   list-style: none;
   padding: 0;
@@ -236,18 +164,6 @@ ul {
 ul li:hover {
   background-color: #eee;
 }
-<<<<<<< HEAD
-=======
-
-.listItems {
-  font-size: 15px;
-  font-weight: bold;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-/* Style the list items */
->>>>>>> main
 ul li {
   border: 1px solid #ddd;
   background-color: #f6f6f6;
@@ -281,7 +197,6 @@ ul li {
   margin-right: 0.2em;
 }
 
-<<<<<<< HEAD
 .close:hover {background: #bbb;}
 
 footer p{
@@ -294,8 +209,6 @@ footer p{
 }
 
 
-=======
->>>>>>> main
 /* media query =====================================================*/
 @media screen and (max-width: 850px){
   /* reduce the font size */
