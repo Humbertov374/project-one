@@ -250,3 +250,4 @@ function clear_items(event){
 var clear_all = document.getElementById("clear_all");
 clear_all.addEventListener("click",clear_items);
 
+
