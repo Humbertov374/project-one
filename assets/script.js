@@ -101,14 +101,24 @@ $(document).ready(function() {
         )
         .text(value);
       // adds a close button to the list items. //
+      /* jw
       var addSpan = $("<button>")
         .attr(
           "class",
           "listButton close"
         )
         .text("X");
+      */
+      var addSpan = $("<span>")
+        .attr(
+          "class","listButton close"
+        )
+        .text("x");
+          
       // adds item and close span to the new div //
-      newDiv.append(newListItem, addSpan);
+      //newDiv.append(newListItem, addSpan);
+      newDiv.append(addSpan, newListItem); // jw
+
       $("#shoppingList").prepend(newDiv);
       // resets the texts field to blank
       $("#addItem").val("");
@@ -142,14 +152,24 @@ $(document).ready(function() {
         )
         .text(newItem);
       // adds a close button to the list items. //
+      /* jw
       var addSpan = $("<button>")
         .attr(
           "class",
           "listButton close"
         )
         .text("X");
+      */
+      var addSpan = $("<span>")
+        .attr(
+          "class","listButton close"
+        )
+        .text("x");
+  
       // adds item and close span to the new div //
-      newDiv.append(newListItem, addSpan);
+      //newDiv.append(newListItem, addSpan);
+      newDiv.append(addSpan, newListItem); // jw
+           
       $("#shoppingList").prepend(newDiv);
       // resets the texts field to blank
       $("#addItem").val("");
@@ -193,13 +213,23 @@ $(document).ready(function() {
         "listItems"
       )
       .text(values[j]);
+
+    /* jw
     var addSpan = $("<button>")
       .attr(
         "class",
         "listButton close"
       )
       .text("X");
-    newDiv.append(newListItem, addSpan);
+    */
+    var addSpan = $("<span>")
+      .attr(
+        "class","listButton close"
+      )
+      .text("x");
+    
+      //newDiv.append(newListItem, addSpan);
+    newDiv.append(addSpan, newListItem); // jw
     $("#shoppingList").prepend(newDiv);
   }
 }
@@ -219,4 +249,5 @@ function clear_items(event){
 
 var clear_all = document.getElementById("clear_all");
 clear_all.addEventListener("click",clear_items);
+
 
