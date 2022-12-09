@@ -70,7 +70,7 @@ input {
 .column_1{
   display: flex;
   flex-direction: column;
-  width: 75%; /* column_1 will occupy 75% of the "main" */
+  width: 50%; /* column_1 will occupy 75% of the "main" */
   flex-wrap: wrap;
   text-align: left;
   padding-right: 0.5em;
@@ -147,13 +147,30 @@ input {
 .column_2{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
-  width: 25%;
+  width: 50%;
   flex-wrap: wrap;
   border: solid red;
   padding-left: 0.5em;
 }
 /* end of column_2 ==================================================*/
-
+/* column_21 ========================================================*/
+.column_21, .column_22, .column_23{
+  display: flex;
+  flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  width: 100%;
+  flex-wrap: wrap;
+  /*border: solid red;*/
+  padding-left: 0.5em;
+}
+/* column_21 ========================================================*/
+.column_221, .column_222{
+  display: flex;
+  flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  width: 50%;
+  flex-wrap: wrap;
+  /*border: solid red;*/
+  padding-left: 0.5em;
+}
 
 /* etc ==============================================================*/
 ul {

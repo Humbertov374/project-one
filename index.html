@@ -68,17 +68,30 @@
 
     <!-- Shopping list based on Ingredients will be here-->
     <div class="column_2">
-      <p class="subtitle">Shopping List</p> <!-- jw, "div" to "p" -->
-      <form class="is-mobile">
-        <input class="input" type="text" placeholder="Add ingredient" id="addItem" />
-        <button type="submit" id="addItemBtn" class="appButton">
-          <i>Add</i> <!-- jw, update from "Search" to "Add" -->
-        </button>
-        <button type="submit" id="clear_all" class="appButton">
-          <i>Refresh</i> <!-- jw, delete all ingredients -->
-        </button>
-      </form>
-      <ul id="shoppingList"></ul>
+      <div class="column_21">
+        <p class="subtitle">Shopping List</p> <!-- jw, "div" to "p" -->
+        <form class="is-mobile">
+          <input class="input" type="text" placeholder="Add ingredient" id="addItem" />
+          <button type="submit" id="addItemBtn" class="appButton">
+            <i>Add</i> <!-- jw, update from "Search" to "Add" -->
+          </button>
+          <button type="submit" id="clear_all" class="appButton">
+            <i>Refresh</i> <!-- jw, delete all ingredients -->
+          </button>
+        </form>  
+      </div>
+      <div class="column_22">
+        <div class="column_221">
+          <ul id="shoppingList"></ul>
+        </div>
+        <div class="column_222"> <!-- we will put the second API here -->
+          <ul id="nutrition_list"></ul>
+          <p>jw</p>
+        </div>  
+      </div>
+      <div class="column_23">
+        <!-- sum will be here-->
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

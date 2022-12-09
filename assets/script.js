@@ -1,3 +1,6 @@
+var nutrition_list = document.getElementById("nutrition_list");
+
+
 $(document).ready(function() {
   $(".main-search-button").on("click", function() {
     var userInput = $(".main-search")
@@ -232,6 +235,8 @@ $(document).ready(function() {
     newDiv.append(addSpan, newListItem); // jw
     $("#shoppingList").prepend(newDiv);
   }
+
+  get_nutrition_list();
 }
 showStorage();
 
@@ -247,7 +252,41 @@ function clear_items(event){
   localStorage.clear();
 }
 
+
+function get_nutrition_list(){ 
+  var query = '3lb carrots and a chicken sandwich'
+  var jw_api_key = "PJFaHWPdpemJ4SpeMA+XoQ==TVmTFAaYrHxQZNv2";
+  var tot_calorie = 0.0;
+  $.ajax({
+      method: 'GET',
+      url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
+      headers: { 'X-Api-Key': jw_api_key},
+      contentType: 'application/json',
+      success: function(result) {
+          console.log(result);
+          var each_calorie=result.items[0].calories;
+          var array_size = result.items.length;
+          
+          //console.log(jw);
+          //console.log(array_size);
+
+          for(var i=0;i<array_size;i++){
+            tot_calorie = tot_calorie + each_calorie;
+          }
+          console.log(tot_calorie);
+          nutrition_list.textContent = tot_calorie;
+
+
+
+      },
+      error: function ajaxError(jqXHR) {
+          console.error('Error: ', jqXHR.responseText);
+      }
+  }); 
+}
+
+
+
 var clear_all = document.getElementById("clear_all");
 clear_all.addEventListener("click",clear_items);
-
 
