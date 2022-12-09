@@ -6,7 +6,7 @@ body {
   font-size: 1.0em; /* this will be our default font size */
 }
 
-header {
+header{
   /* I don't think we need to include flex box here */
   padding-top: 1.0em;
   padding-bottom: 1.0em;
@@ -46,14 +46,14 @@ h1{
 }
 
 /* main & overall ========================================================*/
-main {
+main{
   display: flex;
   flex-direction: row;
   width: 100%;
   font-family: Trirong; /*sans-serif;*/
 }
 
-.subtitle {
+.subtitle{
   font-size: 1.6em;
   font-weight: bold;
 }
@@ -67,7 +67,7 @@ input {
 }
 
 /* column_1 ========================================================*/
-.column_1 {
+.column_1{
   display: flex;
   flex-direction: column;
   width: 75%; /* column_1 will occupy 75% of the "main" */
@@ -75,15 +75,15 @@ input {
   text-align: left;
   padding-right: 0.5em;
 
-  border: solid green;
+  border: solid red;
   /*border-right: solid #ffc107;*/
   border-width: 0.2em;
 }
-.search_recipe {
+.search_recipe{
   padding-left: 0.5em;
 }
 
-.dish_results {
+.dish_results{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -92,7 +92,7 @@ input {
 }
 
 /* each food start ----------------- */
-.each_food {
+.each_food{
   display: flex;
   flex-direction: column;
   width: 30.0%; /* each food will occupy 30% of "dish_results" which is 100% of "column_1" */
@@ -100,7 +100,7 @@ input {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-.food_name {
+.food_name{
   font-size: 1.6em;
   font-style: normal;
   font-weight: bold;
@@ -144,7 +144,7 @@ input {
 /* End of column_1 ===================================================*/
 
 /* column_2 ==========================================================*/
-.column_2 {
+.column_2{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
   width: 25%;
@@ -153,6 +153,7 @@ input {
   padding-left: 0.5em;
 }
 /* end of column_2 ==================================================*/
+
 
 /* etc ==============================================================*/
 ul {
