@@ -101,24 +101,14 @@ $(document).ready(function() {
         )
         .text(value);
       // adds a close button to the list items. //
-      /* jw
       var addSpan = $("<button>")
         .attr(
           "class",
           "listButton close"
         )
         .text("X");
-      */
-      var addSpan = $("<span>")
-        .attr(
-          "class","listButton close"
-        )
-        .text("x");
-          
       // adds item and close span to the new div //
-      //newDiv.append(newListItem, addSpan);
-      newDiv.append(addSpan, newListItem); // jw
-
+      newDiv.append(newListItem, addSpan);
       $("#shoppingList").prepend(newDiv);
       // resets the texts field to blank
       $("#addItem").val("");
@@ -152,24 +142,14 @@ $(document).ready(function() {
         )
         .text(newItem);
       // adds a close button to the list items. //
-      /* jw
       var addSpan = $("<button>")
         .attr(
           "class",
           "listButton close"
         )
         .text("X");
-      */
-      var addSpan = $("<span>")
-        .attr(
-          "class","listButton close"
-        )
-        .text("x");
-  
       // adds item and close span to the new div //
-      //newDiv.append(newListItem, addSpan);
-      newDiv.append(addSpan, newListItem); // jw
-           
+      newDiv.append(newListItem, addSpan);
       $("#shoppingList").prepend(newDiv);
       // resets the texts field to blank
       $("#addItem").val("");
@@ -213,23 +193,13 @@ $(document).ready(function() {
         "listItems"
       )
       .text(values[j]);
-
-    /* jw
     var addSpan = $("<button>")
       .attr(
         "class",
         "listButton close"
       )
       .text("X");
-    */
-    var addSpan = $("<span>")
-      .attr(
-        "class","listButton close"
-      )
-      .text("x");
-    
-      //newDiv.append(newListItem, addSpan);
-    newDiv.append(addSpan, newListItem); // jw
+    newDiv.append(newListItem, addSpan);
     $("#shoppingList").prepend(newDiv);
   }
 }
