@@ -210,11 +210,13 @@ ul li {
 
 /* Style the close button (span) */
 .close {
+  position: relative;
   cursor: pointer;
   border: 1px solid #ddd;
   background-color: plum;
   text-decoration: none;
-  font-size: 1.2em;
+  /*font-size: 1.2em;*/
+  font-size: 22.083; /* I don't really understand how damm this works... */
   color: black;
   transform: translate(0%, -50%);
 

@@ -1,5 +1,5 @@
 //var nutrition_list = document.getElementById("nutrition_list");
-var tot_calorie = 0.0;
+window.tot_calorie = 0.0;
 
 $(document).ready(function() {
   $(".main-search-button").on("click", function() {
@@ -80,8 +80,14 @@ $(document).ready(function() {
   var storage_value = []; // for the local storage...
   var ii = 0; // local storage's array index
   $(document).on("click", ".ingredients-button", function() {
+    // first, reset following values:
     clear_list();
+    storage_value = [];  // whenever click a new "Save Ingredients" button, reset this array
+    ii = 0; // reset to "0"
+    localStorage.setItem("storage_value",JSON.stringify(storage_value));
     tot_calorie = 0.0 // reset to 0 whenever re-search for ingredients; i.e., whenever click "Save Ingredients"
+
+    // now, create a new shopping list...
     var linkDiv = $("<div>")
     .attr(
       "class",
@@ -124,24 +130,26 @@ $(document).ready(function() {
       //$("#shoppingList").prepend(newDiv);
       $("#shoppingList").append(newDiv); //jw
       // resets the texts field to blank
-      $("#addItem").val("");
-
+      //$("#addItem").val(""); //jw, should we really need this here?
+      
+      //store the ingredients into "storage_value[]" for the later use.
       storage_value[ii] = value;
       ii = ii+1;
     };
     localStorage.setItem("storage_value",JSON.stringify(storage_value));
-    showStorage_new();
+    showStorage_new(); // this will recall the saved "storage_value[] and create the list"
   });
 
   // adds user input from the shopping list input to the shopping list//
   $("#addItemBtn").on("click", function() {
-    createListItems();
+    add_ingredient_item();
   });
+
   $(document).on("click", ".search-item", function() {
     console.log("working");
   });
 
-  function createListItems() {
+  function add_ingredient_item() {
     // takes in item from add textarea
     event.preventDefault();
     var newItem = $("#addItem")
@@ -203,6 +211,7 @@ $(document).ready(function() {
 
 //Pulls all previously added list items from local storage and displays them.
 function showStorage_old() {
+  //tot_calorie = 0.0;
   if(localStorage.getItem("storage_value") !== null){
     var storage_value = JSON.parse(localStorage["storage_value"]);
 
@@ -225,20 +234,44 @@ function showStorage_old() {
       $("#shoppingList").append(newDiv);
     
       var input_arg = storage_value[i];
-      get_nutrition_list(input_arg);  
+
+      // find the corresponding nutrition info from a new API
+      get_nutrition_list(input_arg);
+      console.log(tot_calorie);
     }  
   }
+
+  /*
+  var cal_list = $("<li>")
+  .attr(
+    "class",
+    "cal_list"
+  )
+  .text("Total [cal]: " + tot_calorie);
+  $("#nutrition_list").append(cal_list);  
+  */
+
+  var total_cal = document.getElementById("total_cal");
+  total_cal.textContent = "Total [cal] = " + tot_calorie;
+  console.log(tot_calorie);
 }
 function showStorage_new() {
+  //tot_calorie = 0.0;
   if(localStorage.getItem("storage_value") !== null){
     var storage_value = JSON.parse(localStorage["storage_value"]);
 
     console.log(storage_value);
     for(var i=0;i<storage_value.length;i++){
       var input_arg = storage_value[i];
+
+      // find the corresponding nutrition info from a new API
       get_nutrition_list(input_arg);  
     }  
+
   }
+  var total_cal = document.getElementById("total_cal");
+  total_cal.textContent = "Total [cal] = " + tot_calorie;
+  console.log(tot_calorie);
 }
 
 function clear_items(event){
@@ -265,27 +298,37 @@ function get_nutrition_list(input_arg){
       contentType: 'application/json',
       success: function(result) {
           console.log(result);
-          var each_calorie=result.items[0].calories;
-          var array_size = result.items.length;
-          
-          //console.log(jw);
-          //console.log(array_size);
-
-          for(var i=0;i<array_size;i++){
-            sum_calorie = sum_calorie + each_calorie;
+          if(result.items.length !== 0){
+            var each_calorie=result.items[0].calories;
+            var array_size = result.items.length;
+            
+            //console.log(jw);
+            //console.log(array_size);
+  
+            for(var i=0;i<array_size;i++){
+              sum_calorie = sum_calorie + each_calorie;
+            }
+            tot_calorie = tot_calorie + sum_calorie;
+            console.log(tot_calorie);
+  
+            var cal_list = $("<li>")
+              .attr(
+                "class",
+                "cal_list"
+              )
+              .text("[cal]: " + sum_calorie);
+            //$("#nutrition_list").prepend(cal_list);
+            $("#nutrition_list").append(cal_list);  
+          }else{
+            var cal_list = $("<li>")
+              .attr(
+                "class",
+                "cal_list"
+              )
+              .text("[cal]: "); // insert empty info
+            //$("#nutrition_list").prepend(cal_list);
+            $("#nutrition_list").append(cal_list);  
           }
-          tot_calorie = tot_calorie + sum_calorie;
-
-          //console.log(sum_calorie);
-
-          var cal_list = $("<li>")
-            .attr(
-              "class",
-              "cal_list"
-            )
-            .text("[cal]: " + sum_calorie);
-          //$("#nutrition_list").prepend(cal_list);
-          $("#nutrition_list").append(cal_list);
       },
       error: function ajaxError(jqXHR) {
           console.error('Error: ', jqXHR.responseText);
