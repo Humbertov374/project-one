@@ -1,8 +1,74 @@
 $(document).ready(function() {
   $(".main-search-button").on("click", function() {
+    // Grabs search bar information
     var userInput = $(".main-search")
       .val()
       .trim();
+    // Gets nutrition info
+    $.ajax({
+      method: 'GET',
+      url: 'https://api.calorieninjas.com/v1/nutrition?query=' + userInput,
+      headers: { 'X-Api-Key': 'Hfo0T0HLxrkJlZnkA1mqIw==OD2eLbVpK3w8kUZU'},
+      contentType: 'application/json',
+      success: function(result) {
+        foods = result['items']
+        if (!foods) {
+            return;
+        }
+        results = []
+        totals = {
+            'serving_size': 0.0,
+            'calories': 0.0,
+            'total_fat': 0.0,
+            'saturated_fat': 0.0,
+            'cholesterol': 0.0,
+            'sodium': 0.0,
+            'carbohydrates': 0.0,
+            'fiber': 0.0,
+            'sugar': 0.0,
+            'protein': 0.0,
+        }
+
+        function round(value, precision) {
+            var multiplier = Math.pow(10, precision || 0);
+            return Math.round(value * multiplier) / multiplier;
+        }
+        for (var i = 0; i < foods.length; i++) {
+            name = foods[i]['name']
+            serving_size = round(foods[i]['serving_size_g'], 1)
+            calories = round(foods[i]['calories'], 1)
+            total_fat = round(foods[i]['fat_total_g'], 1)
+            saturated_fat = round(foods[i]['fat_saturated_g'], 1)
+            cholesterol = round(foods[i]['cholesterol_mg'], 1)
+            sodium = round(foods[i]['sodium_mg'], 1)
+            carbohydrates = round(foods[i]['carbohydrates_total_g'], 1)
+            fiber = round(foods[i]['fiber_g'], 1)
+            sugar = round(foods[i]['sugar_g'], 1)
+            protein = round(foods[i]['protein_g'], 1)
+            results = ('<ul><div>Name: '+name+'</div><div>Serving Size: '+serving_size+'g</div><div>Calories: '+calories+'</div><div>Total Fat: '+total_fat+'g</div><div>'+saturated_fat+'g</div><div>'+cholesterol+'mg</div><div>'+sodium+'mg</div><div>'+carbohydrates+'g</div><div>'+fiber+'g</div><div>'+sugar+'g</div><div>'+protein+'g</div></ul>')
+            totals['serving_size'] += serving_size
+            totals['calories'] += calories
+            totals['total_fat'] += total_fat
+            totals['saturated_fat'] += saturated_fat
+            totals['cholesterol'] += cholesterol
+            totals['sodium'] += sodium
+            totals['carbohydrates'] += carbohydrates
+            totals['fiber'] += fiber
+            totals['sugar'] += sugar
+            totals['protein'] += protein
+        }
+          console.log(results);
+          $("#nutrition").html(results); 
+
+          for (i = 0; i < foods.length; i++) {
+
+          }
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+          }
+    });
+    // Gets recipes
     $.ajax({
       url:
         "https://api.edamam.com/search?q=" +
