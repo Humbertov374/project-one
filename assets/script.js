@@ -4,7 +4,7 @@ window.tot_calorie = 0.0;
 $(document).ready(function() {
   $(".main-search-button").on("click", function() {
     var userInput = $(".main-search").val().trim();
-    console.log(userInput);
+    //console.log(userInput);
 
     $.ajax({
       url:
@@ -80,7 +80,10 @@ $(document).ready(function() {
     storage_value = [];  // whenever click a new "Save Ingredients" button, reset this array
     ii = 0; // reset to "0"
     localStorage.setItem("storage_value",JSON.stringify(storage_value));
-    tot_calorie = 0.0 // reset to 0 whenever re-search for ingredients; i.e., whenever click "Save Ingredients"
+    
+    // reset to 0 whenever re-search for ingredients; i.e., whenever click "Save Ingredients"
+    var tot_cal = 0.0;
+    localStorage.setItem("tot_cal",tot_cal);
 
     // now, create a new shopping list...
     var linkDiv = $("<div>");
@@ -95,7 +98,6 @@ $(document).ready(function() {
     var ingredientsShop = $(this).val().split(",");
     var iterator = ingredientsShop.values();
 
-    //for (var value of iterator) {
     for (var i=0;i<ingredientsShop.length;i++) {  
       var value = ingredientsShop[i];
       var class_name = "shopitem" + i; //i.e., shopitem1, shopitem2, ...
@@ -110,7 +112,7 @@ $(document).ready(function() {
 
       //store the ingredients into "storage_value[]" for the later use.
       storage_value[ii] = value;
-      console.log(value);
+      //console.log(value);
 
       newDiv.append(addSpan, newListItem);
       $("#shoppingList").append(newDiv);
@@ -130,7 +132,7 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".search-item", function() {
-    console.log("working");
+    //console.log("working");
   });
 
   function add_ingredient_item() {
@@ -165,7 +167,7 @@ $(document).ready(function() {
       //localStorage.setItem(newItem, newItem);
       
       get_nutrition_list(i,newItem);
-      console.log(newItem);
+      //console.log(newItem);
       
       storage_value[i] = newItem;
       localStorage.setItem("storage_value",JSON.stringify(storage_value));
@@ -191,8 +193,11 @@ $(document).ready(function() {
 
 //Pulls all previously added list items from local storage and displays them.
 function showStorage_old() {
-  //tot_calorie = 0.0;
-  if(localStorage.getItem("storage_value") !== null){
+    //initialize tot_cal in the local storage:
+    var tot_cal = 0.0;
+    localStorage.setItem("tot_cal",tot_cal);
+
+    if(localStorage.getItem("storage_value") !== null){
     var storage_value = JSON.parse(localStorage["storage_value"]);
     
     for(var i=0;i<storage_value.length;i++){
@@ -210,33 +215,13 @@ function showStorage_old() {
 
       // find the corresponding nutrition info from a new API
       get_nutrition_list(i,input_arg);
-      //console.log(input_arg);
-      //console.log(tot_calorie);
     }  
   }
-  var total_cal = document.getElementById("total_cal");
-  total_cal.textContent = "Total [cal] = " + tot_calorie;
-  //console.log(tot_calorie);
-}
-
-
-function showStorage_new() {
-  //tot_calorie = 0.0;
-  if(localStorage.getItem("storage_value") !== null){
-    var storage_value = JSON.parse(localStorage["storage_value"]);
-
-    console.log(storage_value);
-    for(var i=0;i<storage_value.length;i++){
-      var input_arg = storage_value[i];
-
-      // find the corresponding nutrition info from a new API
-      get_nutrition_list(input_arg);  
-    }  
-
-  }
-  var total_cal = document.getElementById("total_cal");
-  total_cal.textContent = "Total [cal] = " + tot_calorie;
-  console.log(tot_calorie);
+  /*
+  tot_cal = localStorage.getItem("tot_cal");
+  total_cal = document.getElementById("total_cal");
+  total_cal.textContent = "Total [cal] = " + tot_cal;
+  */
 }
 
 function clear_items(event){
@@ -258,6 +243,9 @@ function get_nutrition_list(i,input_arg){
   //console.log(query);
   var jw_api_key = "PJFaHWPdpemJ4SpeMA+XoQ==TVmTFAaYrHxQZNv2";
   var sum_calorie = 0.0;
+  var tot_cal = Number(localStorage.getItem("tot_cal"));
+  //console.log(tot_cal);
+
   $.ajax({
       method: 'GET',
       url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
@@ -275,13 +263,17 @@ function get_nutrition_list(i,input_arg){
             for(var i=0;i<array_size;i++){
               sum_calorie = sum_calorie + each_calorie;
             }
-            tot_calorie = tot_calorie + sum_calorie;
-            //console.log(tot_calorie);
   
             var cal_list = $("<span>");
             cal_list.attr("class","cal_list").text("\xa0\xa0\xa0\xa0\xa0\xa0[cal]: " + sum_calorie);//note: \xa0 is for an empty space
             
             $(ith_shop_item).append(cal_list);
+
+            // update total calorie & save to the local storage:
+            tot_cal = tot_cal + sum_calorie; 
+            localStorage.setItem("tot_cal",tot_cal);
+            //console.log(tot_cal);
+
           }else{
             var cal_list = $("<span>");
             cal_list.attr("class","cal_list").text("\xa0\xa0\xa0\xa0\xa0\xa0[cal]: "); //note: \xa0 is for an empty space; insert empty info
@@ -292,11 +284,12 @@ function get_nutrition_list(i,input_arg){
       error: function ajaxError(jqXHR) {
           console.error('Error: ', jqXHR.responseText);
       }
-  }); 
+  });
 }
 
 
 showStorage_old(); // at the beginning it will show the previously saved info
 var clear_all = document.getElementById("clear_all");
 clear_all.addEventListener("click",clear_items);
+//console.log(parseFloat(localStorage.getItem("tot_cal")));
 

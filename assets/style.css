@@ -154,7 +154,8 @@ input {
 }
 /* end of column_2 ==================================================*/
 /* column_21 ========================================================*/
-.column_21, .column_22{
+/*.column_21, .column_22{*/
+.column_21{  
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
   width: 100%;
