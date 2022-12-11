@@ -3,9 +3,9 @@ window.tot_calorie = 0.0;
 
 $(document).ready(function() {
   $(".main-search-button").on("click", function() {
-    var userInput = $(".main-search")
-      .val()
-      .trim();
+    var userInput = $(".main-search").val().trim();
+    console.log(userInput);
+
     $.ajax({
       url:
         "https://api.edamam.com/search?q=" +
@@ -41,9 +41,7 @@ $(document).ready(function() {
         var links = $("<a>");
         var recipeLinks = hits[i].recipe.url;
         //console.log(recipeLinks);
-        links.addClass(
-          "search-item"
-        );
+        links.addClass("search-item");
         links.attr("href", recipeLinks);
         links.attr("target", "_blank");
         links.text("Recipe Source"); // "Recipe Source"
@@ -56,10 +54,7 @@ $(document).ready(function() {
         //adds buttons for adding ingredients
         var ingredientBttn = $("<button>");
         ingredientBttn.text("Save Ingredients"); // "Save Ingredients"
-        ingredientBttn.attr(
-          "class",
-          "ingredients-button search-item"
-        );
+        ingredientBttn.attr("class","ingredients-button search-item");
         ingredientBttn.attr("value", hits[i].recipe.ingredientLines);
         ingredientBttn.attr("data-link", recipeLinks);
         ingredientBttn.attr("data-name", names);
@@ -88,11 +83,8 @@ $(document).ready(function() {
     tot_calorie = 0.0 // reset to 0 whenever re-search for ingredients; i.e., whenever click "Save Ingredients"
 
     // now, create a new shopping list...
-    var linkDiv = $("<div>")
-    .attr(
-      "class",
-      "savedDish"
-    );
+    var linkDiv = $("<div>");
+    linkDiv.attr("class","savedDish");
     var saveLink = $("<a>");
     //console.log($(this).attr("data-link"));
     saveLink.attr("href", $(this).attr("data-link"));
@@ -100,44 +92,36 @@ $(document).ready(function() {
     saveLink.text($(this).attr("data-name"));
     linkDiv.append(saveLink);
     $(".savedMeals").append(linkDiv);
-    var ingredientsShop = $(this)
-      .val()
-      .split(",");
+    var ingredientsShop = $(this).val().split(",");
     var iterator = ingredientsShop.values();
-    //console.log(iterator);
 
-    for (var value of iterator) {
-      //console.log(value);
+    //for (var value of iterator) {
+    for (var i=0;i<ingredientsShop.length;i++) {  
+      var value = ingredientsShop[i];
+      var class_name = "shopitem" + i; //i.e., shopitem1, shopitem2, ...
+
       // creates div for item and button
-      var newDiv = $("<div>").attr("class", "shopitem");
+      var newDiv = $("<div>").attr("class", class_name);
       // creates li //
-      var newListItem = $("<li>")
-        .attr(
-          "class",
-          "listItems"
-        )
-        .text(value);
-      var addSpan = $("<span>")
-        .attr(
-          "class","listButton close"
-        )
-        .text("x");
-          
-      // adds item and close span to the new div //
-      newDiv.append(addSpan, newListItem);
+      var newListItem = $("<li>");
+      newListItem.attr("class","listItems").text(value);
+      var addSpan = $("<span>");
+      addSpan.attr("class","listButton close").text("x");
 
-
-      //$("#shoppingList").prepend(newDiv);
-      $("#shoppingList").append(newDiv); //jw
-      // resets the texts field to blank
-      //$("#addItem").val(""); //jw, should we really need this here?
-      
       //store the ingredients into "storage_value[]" for the later use.
       storage_value[ii] = value;
-      ii = ii+1;
+      console.log(value);
+
+      newDiv.append(addSpan, newListItem);
+      $("#shoppingList").append(newDiv);
+
+      // resets the texts field to blank
+      $("#addItem").val(""); //jw, should we really need this here?
+
+      get_nutrition_list(i,value);
+      ii = ii+1;      
     };
     localStorage.setItem("storage_value",JSON.stringify(storage_value));
-    showStorage_new(); // this will recall the saved "storage_value[] and create the list"
   });
 
   // adds user input from the shopping list input to the shopping list//
@@ -152,37 +136,38 @@ $(document).ready(function() {
   function add_ingredient_item() {
     // takes in item from add textarea
     event.preventDefault();
-    var newItem = $("#addItem")
-      .val()
-      .trim();
+    var newItem = $("#addItem").val();
+
     if (newItem === "") {
+      // if the new item is empty, do nothing and set the "Add ingredient" box empty
       $("#addItem").val("");
     } else {
+      var storage_value = JSON.parse(localStorage["storage_value"]);
+      var i=storage_value.length; // we will add one more item to the end; note the list starts from "0" that is why we should not add "1" here.
+
       // creates div for item and button
-      var newDiv = $("<div>").attr("class", "shopitem");
+      var class_name = "shopitem" + i; //i.e., shopitem1, shopitem2, ...
+      var newDiv = $("<div>").attr("class", class_name);
       // creates li //
-      var newListItem = $("<li>")
-        .attr(
-          "class",
-          "listItems"
-        )
-        .text(newItem);
-      var addSpan = $("<span>")
-        .attr(
-          "class","listButton close"
-        )
-        .text("x");
-  
+      var newListItem = $("<li>");
+      newListItem.attr("class","listItems").text(newItem);
+      var addSpan = $("<span>");
+      addSpan.attr("class","listButton close").text("x");
+      
       // adds item and close span to the new div //
       newDiv.append(addSpan, newListItem);
+      //newDiv.append(addSpan, newListItem, addSpan2);
            
       //$("#shoppingList").prepend(newDiv);
       $("#shoppingList").append(newDiv);
       // resets the texts field to blank
       $("#addItem").val("");
       //localStorage.setItem(newItem, newItem);
-
-      storage_value[ii] = newItem;
+      
+      get_nutrition_list(i,newItem);
+      console.log(newItem);
+      
+      storage_value[i] = newItem;
       localStorage.setItem("storage_value",JSON.stringify(storage_value));
       ii = ii+1;
     }
@@ -200,12 +185,7 @@ $(document).ready(function() {
   function close() {
     var self = $(this);
     self.parent().css("display", "none");
-    localStorage.removeItem(
-      self
-        .parent()
-        .find("li")
-        .text()
-    );
+    localStorage.removeItem(self.parent().find("li").text());
   }
 })
 
@@ -214,21 +194,14 @@ function showStorage_old() {
   //tot_calorie = 0.0;
   if(localStorage.getItem("storage_value") !== null){
     var storage_value = JSON.parse(localStorage["storage_value"]);
-
-    console.log(storage_value);
+    
     for(var i=0;i<storage_value.length;i++){
-      var newDiv = $("<div>").attr("class", "shopitem");
-      var newListItem = $("<li>")
-        .attr(
-          "class",
-          "listItems"
-        )
-        .text(storage_value[i]);  
-      var addSpan = $("<span>")
-        .attr(
-          "class","listButton close"
-        )
-        .text("x");
+      var class_name = "shopitem" + i; //i.e., shopitem1, shopitem2, ...
+      var newDiv = $("<div>").attr("class", class_name);
+      var newListItem = $("<li>");
+      newListItem.attr("class","listItems").text(storage_value[i]);
+      var addSpan = $("<span>");
+      addSpan.attr("class","listButton close").text("x");
       
       newDiv.append(addSpan, newListItem);
       $("#shoppingList").append(newDiv);
@@ -236,25 +209,17 @@ function showStorage_old() {
       var input_arg = storage_value[i];
 
       // find the corresponding nutrition info from a new API
-      get_nutrition_list(input_arg);
-      console.log(tot_calorie);
+      get_nutrition_list(i,input_arg);
+      //console.log(input_arg);
+      //console.log(tot_calorie);
     }  
   }
-
-  /*
-  var cal_list = $("<li>")
-  .attr(
-    "class",
-    "cal_list"
-  )
-  .text("Total [cal]: " + tot_calorie);
-  $("#nutrition_list").append(cal_list);  
-  */
-
   var total_cal = document.getElementById("total_cal");
   total_cal.textContent = "Total [cal] = " + tot_calorie;
-  console.log(tot_calorie);
+  //console.log(tot_calorie);
 }
+
+
 function showStorage_new() {
   //tot_calorie = 0.0;
   if(localStorage.getItem("storage_value") !== null){
@@ -285,10 +250,12 @@ function clear_list(){
   }
 }
 
-function get_nutrition_list(input_arg){ 
+function get_nutrition_list(i,input_arg){ 
   //var query = '3lb carrots and a chicken sandwich'
+  var ith = i;
+  var ith_shop_item = ".shopitem"+ith; //i.e., shopitem1, shopitem2, ...
   var query = input_arg;
-  console.log(query);
+  //console.log(query);
   var jw_api_key = "PJFaHWPdpemJ4SpeMA+XoQ==TVmTFAaYrHxQZNv2";
   var sum_calorie = 0.0;
   $.ajax({
@@ -297,7 +264,7 @@ function get_nutrition_list(input_arg){
       headers: { 'X-Api-Key': jw_api_key},
       contentType: 'application/json',
       success: function(result) {
-          console.log(result);
+          //console.log(result);
           if(result.items.length !== 0){
             var each_calorie=result.items[0].calories;
             var array_size = result.items.length;
@@ -309,25 +276,17 @@ function get_nutrition_list(input_arg){
               sum_calorie = sum_calorie + each_calorie;
             }
             tot_calorie = tot_calorie + sum_calorie;
-            console.log(tot_calorie);
+            //console.log(tot_calorie);
   
-            var cal_list = $("<li>")
-              .attr(
-                "class",
-                "cal_list"
-              )
-              .text("[cal]: " + sum_calorie);
-            //$("#nutrition_list").prepend(cal_list);
-            $("#nutrition_list").append(cal_list);  
+            var cal_list = $("<span>");
+            cal_list.attr("class","cal_list").text("\xa0\xa0\xa0\xa0\xa0\xa0[cal]: " + sum_calorie);//note: \xa0 is for an empty space
+            
+            $(ith_shop_item).append(cal_list);
           }else{
-            var cal_list = $("<li>")
-              .attr(
-                "class",
-                "cal_list"
-              )
-              .text("[cal]: "); // insert empty info
+            var cal_list = $("<span>");
+            cal_list.attr("class","cal_list").text("\xa0\xa0\xa0\xa0\xa0\xa0[cal]: "); //note: \xa0 is for an empty space; insert empty info
             //$("#nutrition_list").prepend(cal_list);
-            $("#nutrition_list").append(cal_list);  
+            $(ith_shop_item).append(cal_list);
           }
       },
       error: function ajaxError(jqXHR) {

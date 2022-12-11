@@ -70,7 +70,7 @@ input {
 .column_1{
   display: flex;
   flex-direction: column;
-  width: 50%; /* column_1 will occupy 75% of the "main" */
+  width: 70%; /* column_1 will occupy 75% of the "main" */
   flex-wrap: wrap;
   text-align: left;
   padding-right: 0.5em;
@@ -147,38 +147,19 @@ input {
 .column_2{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
-  width: 50%;
+  width: 30%;
   flex-wrap: wrap;
   border: solid red;
   padding-left: 0.5em;
 }
 /* end of column_2 ==================================================*/
 /* column_21 ========================================================*/
-.column_21, .column_23{
+.column_21, .column_22{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
-  width: 100%;
-  flex-wrap: wrap;
-  border: solid red;
-  padding-left: 0.5em;
-}
-
-.column_22{
-  display: flex;
-  flex-direction: row; /* to stack horizontally first then vertical shift down when not enough space */
   width: 100%;
   flex-wrap: wrap;
   /*border: solid red;*/
-  padding-left: 0.5em;
-}
-/* column_21 ========================================================*/
-.column_221, .column_222{
-  display: flex;
-  flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
-  width: 45%;
-  flex-wrap: wrap;
-  border: solid blue;
-  padding-left: 0.5em;
 }
 
 /* etc ==============================================================*/
@@ -231,6 +212,10 @@ ul li {
 }
 
 .close:hover {background: #bbb;}
+
+.cal_list{
+  display:flex;
+}
 
 footer p{
   font-size: 1.5em;
