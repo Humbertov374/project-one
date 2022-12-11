@@ -250,4 +250,7 @@ function clear_items(event){
 var clear_all = document.getElementById("clear_all");
 clear_all.addEventListener("click",clear_items);
 
+var formData = new FormData();
+formData.append('file', $('#imagefile')[0].files[0]);
+
 
