@@ -45,7 +45,7 @@ $(document).ready(function() {
             fiber = round(foods[i]['fiber_g'], 1)
             sugar = round(foods[i]['sugar_g'], 1)
             protein = round(foods[i]['protein_g'], 1)
-            results = ('<ul><div>Name: '+name+'</div><div>Serving Size: '+serving_size+'g</div><div>Calories: '+calories+'</div><div>Total Fat: '+total_fat+'g</div><div>'+saturated_fat+'g</div><div>'+cholesterol+'mg</div><div>'+sodium+'mg</div><div>'+carbohydrates+'g</div><div>'+fiber+'g</div><div>'+sugar+'g</div><div>'+protein+'g</div></ul>')
+            results = ('<ul><div>Name: '+name+'</div><div>Serving Size: '+serving_size+'g</div><div>Calories: '+calories+'</div><div>Total Fat: '+total_fat+'g</div><div>Saturated Fat:'+saturated_fat+'g</div><div>Cholesterol: '+cholesterol+'mg</div><div>Sodium: '+sodium+'mg</div><div>Carbohydrates: '+carbohydrates+'g</div><div>Fiber: '+fiber+'g</div><div>Sugar: '+sugar+'g</div><div>Protein: '+protein+'g</div></ul>')
             totals['serving_size'] += serving_size
             totals['calories'] += calories
             totals['total_fat'] += total_fat

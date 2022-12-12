@@ -1,46 +1,29 @@
+
 body {
   /*font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
   /*font-family: 'Open Sans', sans-serif;*/
   /*font-family: "Montserrat","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; */
   font-family: "sofia", "Trirong", sans-serif;
-  font-size: 1.0em; /* this will be our default font size */
+  font-size: 16px; /* this will be our default font size, and it is the default font size for most browser. */
 }
 
 header{
   /* I don't think we need to include flex box here */
+  text-align: center;
   padding-top: 1.0em;
   padding-bottom: 1.0em;
-  /*background-color: yellow;*/ /* don't need to include background color since we are using a backgroudn image */
+  background-color: yellow; /* blue */
+  color: black; /* white */
+  font-size: 3.0em;
   margin: 0; /* delete default margin */
 
   /*background-image: url("./mini-carbonara-quiches-165527-1.jpg");*/
-  background-image: url("./pictures/images.jpg");
-  height: 80%;
+  background-image: url("./images.jpg");
+  height: 80%;/*9.375%;*/ /*150px;*/
   background-position: center;
   background-repeat: repeat;
   background-size: contain;
-
-  color: black;
-  font-size: 3.0em;
-  /*
-  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
-		-2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff,
-		-4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff,
-		-6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
-  */
-  text-align: center;
-  font-weight: 900;
-  text-shadow:3px 3px 0px #eb452b, 
-              6px 6px 0px #efa032, 
-              9px 9px 0px #46b59b;
-              /*20px 20px 0px #017e7f;
-              25px 25px 0px #052939, 
-              30px 30px 0px #c11a2b, 
-              35px 35px 0px #c11a2b, 
-              40px 40px 0px #c11a2b, 
-              45px 45px 0px #c11a2b;*/
 }
-
 h1{
   margin: 0;
 }
@@ -49,7 +32,15 @@ h1{
 main{
   display: flex;
   flex-direction: row;
+  /*padding: 1.5%; /*20px;* / */
   width: 100%;
+  /*
+  padding-left: 18.75%; /*300px;* /
+  padding-right: 18.75%; /*300px;* /
+  padding-bottom: 3.125%; /*50px;* /
+  padding-top: 0.625%; /*10px;* /
+  */
+  /*margin-bottom: 5em;*/
   font-family: Trirong; /*sans-serif;*/
 }
 
@@ -59,18 +50,18 @@ main{
 }
 
 input {
-  padding: 0.625em; /*10px;*/
+  padding: 10px;
   font-size: 1.2em;
   border: 1px solid grey;
   background: #f1f1f1;
-  margin-bottom: 0.625em; /*10px;  */
+  margin-bottom: 10px;  
 }
 
 /* column_1 ========================================================*/
 .column_1{
   display: flex;
   flex-direction: column;
-  width: 75%; /* column_1 will occupy 75% of the "main" */
+  width: 75%; /* column_1 will occupy 80% of the "main" */
   flex-wrap: wrap;
   text-align: left;
   padding-right: 0.5em;
@@ -95,7 +86,7 @@ input {
 .each_food{
   display: flex;
   flex-direction: column;
-  width: 30.0%; /* each food will occupy 30% of "dish_results" which is 100% of "column_1" */
+  width: 30.0%; /* each food will occupy 32% of "dish_results" which is 100% of "column_1" */
   border: solid #ffc107;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -116,13 +107,14 @@ input {
 /* if appButton is used, we don't need to add "main-search-button" */
 /* but "main-search-button" is used for click event, thus do not remove the class in the html */
 .appButton {
-  padding: 0.625em;
+  /*width: 100%;*/
+  padding: 10px;
   background: #2196F3;
   color: white;
   font-size: 1.2em;
   border: 1px solid grey;
   cursor: pointer;  
-  margin-bottom: 0.625em;
+  margin-bottom: 10px;
 }
 .appButton:hover {
   background-color: purple;
@@ -130,13 +122,14 @@ input {
 
 /* jw, I set igredients-button identical to appButton */
 .ingredients-button {
-  padding: 0.625em;
+  /*width: 100%;*/
+  padding: 10px;
   background: #2196F3;
   color: white;
   font-size: 1.2em;
   border: 1px solid grey;
   cursor: pointer;  
-  margin-bottom: 0.625em;
+  margin-bottom: 10px;
 }
 .ingredients-button:hover {
   background-color: purple;
@@ -147,8 +140,10 @@ input {
 .column_2{
   display: flex;
   flex-direction: column; /* to stack horizontally first then vertical shift down when not enough space */
+  /*flex-basis: 20%; /* 80% of width */
   width: 25%;
   flex-wrap: wrap;
+
   border: solid red;
   padding-left: 0.5em;
 }
@@ -186,8 +181,8 @@ ul li {
   text-decoration: none;
   font-size: 1.2em;
   color: black;
-  transform: translate(0%, -50%);
 
+  transform: translate(0%, -50%);
   padding-top: 0.0em;
   padding-bottom: 0.0em;
   padding-left: 0.3em;
@@ -210,34 +205,46 @@ footer p{
 }
 
 
-/* media query =====================================================*/
-@media screen and (max-width: 850px){
-  /* reduce the font size */
-  body{
-    font-size: 80%;
-  }
-  .each_food{
-    width: 45.0%; /* include 2 foods */
-  }
-}
 
-@media screen and (max-width: 550px){
-  /* reduce the font size */
-  body{
-    font-size: 50%;
-  }
-  /* locate column_2 below the column_1 */
-  main{
-    flex-direction: column;
-  }
-  .each_food{
-    width: 95.0%; /* include only one food */
-  }
-  .column_1{
-    width: 100%; /* column_1 will occupy 80% of the "main" */  
-  }
-  .column_2{
-    width: 100%; /* column_1 will occupy 80% of the "main" */  
-  }
+/* Style the list items */
+/*
+.checked {
 }
+.shopitem {
+}
+.dish-results {
+}
+.savedDish {
+}
+*/
+
+
+/* media query =====================================================*/
+/* 850 px & 550 px*/
+/*
+@media screen and (max-width: 1300px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 70%;
+  }
+  main{
+      padding-left: 9.375%; / *150px;* /
+      padding-right: 9.375%; / *150px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+@media screen and (max-width: 950px){
+  / * reduce the font size & main body's left/right padding * /
+  body{
+      font-size: 50%;
+  }
+  main{
+      padding-left: 1.25%; / *20px;* /
+      padding-right: 1.25%; / *20px;* /
+      padding-bottom: 3.125%; / *50px;* /
+      padding-top: 0.625%; / *10px;* /
+  }    
+}
+*/
 /* end of media query ================================================*/
