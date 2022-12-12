@@ -22,7 +22,7 @@ This page shows the coding repository: https://github.com/Humbertov374/project-o
 
 This page can be viewed live at https://humbertov374.github.io/project-one/
 
-![screenshot of content](./assets/pictures/live-page-pic.JPG "This is a screenshot of the content") 
+![screenshot of content](./assets/Cloud9Recipe.JPG "This is a screenshot of the content") 
 
 
 ## Credits
